@@ -35,7 +35,33 @@ jobs:
         username: ${{ secrets.USERNAME }} 
         key: ${{ secrets.TEST_KEY }} 
         port: ${{ secrets.PORT }} 
-        script: ls -la 
+        script: scp 123.txt ${{ SECURE_HOST_NAME }}:/home/ubuntu/
+        
+#     - name: ls -a via OPEN SSH Private Key
+#       uses: garygrossgarten/github-action-ssh@release
+#         with:
+#           command: ls -a
+#           host: ${{ secrets.HOST }}
+#           username: garygrossgarten
+#           password: ${{ secrets.PASSPHRASE }}
+#           privateKey: ${{ secrets.PRIVATE_KEY}}
+        
+#     - name: Upload file via SSH
+#       uses: nicklasfrahm/scp-action@main
+#       with:
+#         direction: upload
+#         host: ${{ secrets.SSH_TARGET_HOST }}
+#         fingerprint: ${{ secrets.SSH_TARGET_FINGERPRINT }}
+#         username: ${{ secrets.SSH_USER }}
+#         key: ${{ secrets.SSH_PRIVATE_KEY }}
+#         proxy_host: ${{ secrets.SSH_PROXY_HOST }}
+#         proxy_fingerprint: ${{ secrets.SSH_PROXY_FINGERPRINT }}
+#         proxy_username: ${{ secrets.SSH_USER }}
+#         proxy_key: ${{ secrets.SSH_PRIVATE_KEY }}
+#         source: |
+#           path/to/source/a.txt
+#           path/to/source/b.txt
+#           target: path/to/target
 
 
 
