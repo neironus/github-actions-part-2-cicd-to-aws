@@ -36,6 +36,18 @@ jobs:
         key: ${{ secrets.TEST_KEY }} 
         port: ${{ secrets.PORT }} 
         script: scp 123.txt ${{ secrets.SECURE_HOST_NAME }}:/home/ubuntu/
+      
+    - name: executing ls
+      uses: appleboy/ssh-action@master 
+      with: 
+        host: ${{ secrets.HOST }} 
+        username: ${{ secrets.USERNAME }} 
+        key: ${{ secrets.TEST_KEY }} 
+        port: ${{ secrets.PORT }} 
+        script: scp ${{ secrets.SECURE_HOST_NAME }} 'ls -la'
+
+
+
         
         
 #     - name: ls -a via OPEN SSH Private Key
