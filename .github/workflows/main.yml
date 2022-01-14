@@ -43,8 +43,8 @@ jobs:
         host: ${{ secrets.HOST }} 
         username: ${{ secrets.USERNAME }} 
         key: ${{ secrets.TEST_KEY }} 
-        port: ${{ secrets.PORT }} 
-        script: scp ${{ secrets.SECURE_HOST_NAME }} 'ls -la'
+        port: ${{ secrets.PORT }}
+        script: ssh ${{ secrets.SECURE_HOST_NAME }} 'ls -la'
 
 
 
